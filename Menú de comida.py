@@ -23,12 +23,8 @@ print("Fanta----------$45")
 print("Agua-----------$30")
 print(" ")
 
-while selection_1 == "HAMBURGUESA" or selection_1 != "PANCHO" or selection_1 != "CHORIZO" or selection_1 != "PAPAS FRITAS" or selection_1 != "COCA COLA" or selection_1 != "SPRITE" or selection_1 != "FANTA" or selection_1 != "AGUA":
-    selection_1 = input("Ingrese su selección: ").upper()
-    print("{} no está en el menú. Elige algo del menú.".format(selection_1))
-    print("")
-
-quest_1 = input("¿Desea pedir algo más?: ").upper()
+selection_1 = input("Ingrese su selección: ").upper()
+quest_1 = input("¿Desea pedir algo más?(Si / No): ").upper()
 
 if selection_1 == "HAMBURGUESA":
     total += 100
@@ -52,12 +48,8 @@ if quest_1 != "SI":
     print("Su pedido es {}. Demorará entre 10 y 15 minutos".format(selection_1))
     print("Total: ${}".format(total))
 else:
-    while selection_2 != "HAMBURGUESA" or selection_2 != "PANCHO" or selection_2 != "CHORIZO" or selection_2 != "PAPAS FRITAS" or selection_2 != "COCA COLA" or selection_2 != "SPRITE" or selection_2 != "FANTA" or selection_2 != "AGUA":
-        selection_2 = input("Ingrese su selección: ").upper()
-        print("{} no está en el menú. Elige algo del menú.".format(selection_2))
-        print("")
-
-    quest_2 = input("¿Desea pedir algo más?: ").upper()
+    selection_2 = input("Ingrese su selección: ").upper()
+    quest_2 = input("¿Desea pedir algo más? (Si / No): ").upper()
 
     if selection_2 == "HAMBURGUESA":
         total += 100
@@ -82,7 +74,7 @@ else:
         print("Total: ${}".format(total))
     else:
         selection_3 = input("Ingrese su selección: ").upper()
-        quest_3 = input("¿Desea pedir algo más?: ").upper()
+        quest_3 = input("¿Desea pedir algo más?(Si / No): ").upper()
 
         if selection_3 == "HAMBURGUESA":
             total += 100
@@ -107,7 +99,7 @@ else:
             print("Total: ${}".format(total))
         else:
             selection_4 = input("Ingrese su selección: ").upper()
-            quest_4 = input("¿Desea pedir algo más?: ").upper()
+            quest_4 = input("¿Desea pedir algo más?(Si / No): ").upper()
 
             if selection_4 == "HAMBURGUESA":
                 total += 100
@@ -131,7 +123,7 @@ else:
                 print("Su pedido es {}, {}, {} y {}. Demorará entre 15 y 20 minutos".format(selection_1, selection_2, selection_3, selection_4))
                 print("Total: ${}".format(total))
             else:
-                selection_5 = input("Ingrese su selección: ").upper()
+                selection_5 = input("Ingrese su selección(Si / No): ").upper()
                 if selection_5 == "HAMBURGUESA":
                     total += 100
                 elif selection_5 == "PANCHO":
