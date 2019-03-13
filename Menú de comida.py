@@ -36,7 +36,7 @@ elif selection_1 == "PAPAS FRITAS":
     total += 50
 elif selection_1 == "COCA COLA":
     total += 45
-elif selection_1 == "SPRTIE":
+elif selection_1 == "SPRITE":
     total += 45
 elif selection_1 == "FANTA":
     total += 45
@@ -61,7 +61,7 @@ else:
         total += 50
     elif selection_2 == "COCA COLA":
         total += 45
-    elif selection_2 == "SPRTIE":
+    elif selection_2 == "SPRITE":
         total += 45
     elif selection_2 == "FANTA":
         total += 45
@@ -86,7 +86,7 @@ else:
             total += 50
         elif selection_3 == "COCA COLA":
             total += 45
-        elif selection_3 == "SPRTIE":
+        elif selection_3 == "SPRITE":
             total += 45
         elif selection_3 == "FANTA":
             total += 45
@@ -111,7 +111,7 @@ else:
                 total += 50
             elif selection_4 == "COCA COLA":
                 total += 45
-            elif selection_4 == "SPRTIE":
+            elif selection_4 == "SPRITE":
                 total += 45
             elif selection_4 == "FANTA":
                 total += 45
@@ -134,7 +134,7 @@ else:
                     total += 50
                 elif selection_5 == "COCA COLA":
                     total += 45
-                elif selection_5 == "SPRTIE":
+                elif selection_5 == "SPRITE":
                     total += 45
                 elif selection_5 == "FANTA":
                     total += 45
