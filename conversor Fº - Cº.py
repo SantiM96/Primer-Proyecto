@@ -14,9 +14,10 @@ else:
     print("Ingrese un valor de los indicados( C / F )")
 
 if unity_1 == "C":
-    value_1 = input("Ingrese el valor en grados Celsius a convertir: ")
+    value_1 = float(input("Ingrese el valor en grados Celsius a convertir: "))
     result = 1.8 * value_1 + 32
-    print("{} grados Celsius equivale a {} ".format(unity_1, unity_2))
+    print(" grados Celsius equivale a {0:.2f} ".format(result))
 elif unity_1 == "F":
+    value_1 = float(input("Ingrese el valor en grados Farenheit a convertir: "))
     result = (value_1 - 32)/1.8
 
