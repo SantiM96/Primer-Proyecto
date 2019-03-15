@@ -1,9 +1,10 @@
 sueldo = 0
 
+print("")
 input("Presione enter para comenzar")
 print("")
 
-sueldo = input("Ingrese su sueldo neto en pesos para iniciar el cálculo de IRPF: ")
+sueldo = float(input("Ingrese su sueldo neto en pesos para iniciar el cálculo de IRPF: "))
 print("")
 print("")
 
