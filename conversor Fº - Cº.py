@@ -4,6 +4,9 @@ print("Bienvenido al conversor de unidades entre Celsius y Farenheit")
 print("")
 
 unity_1 = input("Ingrese la unidad que desea cambiar( C / F ): ").upper()
+while unity_1 != "C" and unity_1 != "F":
+    unity_1 = input("Ingrese una de las unidades indicadas( C / F )").upper()
+print("")
 
 if unity_1 == "C":
     unity_2 = "F"
