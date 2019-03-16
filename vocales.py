@@ -1,6 +1,6 @@
 
 print("")
-frase_usu = input("Ingrese una frase: ").upper()
+txt_usu = input("Ingrese una frase: ").upper()
 
 vocales = ["A", "E", "I", "O", "U"]
 espacios = " "
@@ -8,7 +8,7 @@ n_vocales = 0
 n_consonantes = 0
 
 
-for letra in frase_usu:
+for letra in txt_usu:
     if letra in vocales:
         n_vocales += 1
     elif letra not in vocales and letra != espacios:
