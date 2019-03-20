@@ -1,4 +1,4 @@
-"""el código está mal, compara strings"""
+
 list_number = []
 list_number_int = []
 n_usu = " "
