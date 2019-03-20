@@ -15,7 +15,7 @@ while len(list_number) < n_quantity:
         print("¡Número añadido!")
         n_usu = " "
     else:
-        print("Solo números ma friend")
+        print("Solo números")
 
 n_usu = list_number[1]
 
