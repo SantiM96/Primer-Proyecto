@@ -1,11 +1,13 @@
 
 list_number = []
+list_number_int = []
 n_usu = " "
-print(""
-      "Ingrese una serie de números para determinar el más pequeño."
-      "Ingrese `FIN` para continur"
-      "")
 n_order = 1
+
+print("")
+print("Ingrese una serie de números para determinar el más pequeño.")
+print("Ingrese `FIN` para continur")
+print("")
 
 while n_usu != "FIN":
     while not n_usu.isdigit() and n_usu != "FIN":
@@ -20,12 +22,15 @@ while n_usu != "FIN":
         print("¡Número añadido!")
         n_usu = " "
 
-n_usu = list_number[0]
-n_small = n_usu
 for number in list_number:
-    if number <= n_small:
-        n_small = number
+    list_number_int.append(int(number))
 
-print(""
-      ""
-      "El menor número de los ingresados es: {}".format(n_small))
+n_usu = list_number_int[0]
+n_small = n_usu
+for number_1 in list_number_int:
+    if number_1 <= n_small:
+        n_small = number_1
+
+print("")
+print("")
+print("El menor número de los ingresados es: {}".format(n_small))
