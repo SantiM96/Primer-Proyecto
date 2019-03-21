@@ -14,8 +14,10 @@ for day in range(1, 8):
 
 day_atack = rest_days + days
 
-
-print("Faltan {} días para la horda. Atacará el día {}".format(rest_days, day_atack))
+if rest_days == 1:
+    print("Falta {} día para la horda. Atacará el día {}".format(rest_days, day_atack))
+else:
+    print("Faltan {} días para la horda. Atacará el día {}".format(rest_days, day_atack))
 print("")
 
 
