@@ -2,7 +2,7 @@ import getpass
 
 number_2 = 0
 print("")
-number_1 = input("Ingrese el número a adivinar: ")
+number_1 = getpass.getpass(input("Ingrese un número para adivinar: "))
 print("")
 print("")
 
