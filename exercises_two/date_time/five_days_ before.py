@@ -3,7 +3,6 @@ import datetime
 
 print("")
 day_before = ""
-
 day_five_before = datetime.datetime.now() - datetime.timedelta(days=5)
 day_before_n = day_five_before.weekday()
 

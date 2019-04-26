@@ -95,7 +95,7 @@ print("     ¡Averigua la fecha de tu muerte!")
 print("-------------------------------------------")
 print("Ingresa tu fecha de nacimiento [dd/mm/aaaa]")
 birth_date = input()
-birth_date = chdate(birth_date, "Ingrese una fecha válida en el formato indicado [dd/mm/aaaa]", "Eres muy joven para este test", "Vuelve a intentarlo luego de nacer")
+birth_date = chdate(birth_date, "Ingrese una fecha válida en el formato indicado [dd/mm/aaaa]", "Debes tener al menos un año de vida para saber cuando morirás", "Esa fecha aun no llega")
 
 print("")
 disc_smoke = discount(TOTAL_PENALIZATION_SMOKE, "¿Fumas?")
