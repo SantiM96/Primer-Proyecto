@@ -22,18 +22,28 @@ def write_file_and_screen(text, file_name):
         print(text)
 
 def alarm():
-    answer = input("¿Desea programar una alarma? [Si/No]")
-    answer.upper()
-    if answer == "SI":
-        print("¿A que hora desea la alarma?")
-        hour = input()
+
+    print("¿A que hora desea la alarma?")
+    hour = input()
+    print("Que día desea que suene ( Todos [T] - Lunesa a Viernes [LV] Personalizado [P] )")
+    answer = input().upper()
+        if answer == "P":
+            condition = True
+            while condition:
+                print("Ingrese un día o escriba \"Listo\" para continuar\n( Lunes [L] - Martes [Ma] - Miercoles [Mi]"
+                        " - Jueves [J] - Viernes [V] - Sábado [S] - Domingo [D] )")
+                input()
+
 
 
 
 
 def main():
 
-    alarm()
+    answer = input("¿Desea programar una alarma? [Si/No]")
+    answer.upper()
+    if answer == "SI":
+        alarm()
 
     current_time = datetime.datetime.now()
 

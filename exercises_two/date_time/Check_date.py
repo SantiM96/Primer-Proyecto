@@ -4,7 +4,7 @@ print("")
 print("Ingresa tu fecha de nacimiento [dd/mm/aaaa]")
 birth_date = input()
 
-def chdate(date, error_message_ivalid, error_message_same, error_message_exceed):
+def chdate(date, error_message_invalid, error_message_same, error_message_exceed):
     check = [["0", "1", "2", "3"], ["0", "1", "2"], ["0", "1"]]
     all_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     condition = True
@@ -61,12 +61,13 @@ def chdate(date, error_message_ivalid, error_message_same, error_message_exceed)
         if condition_year == True and condition_month == True and condition_day == True:
             condition = False
         else:
-            print(error_message_ivalid)
+            print(error_message_invalid)
             date = input()
 
     date_ret = datetime.datetime.strptime(date, "%d/%m/%Y")
     return date_ret
 
 # Example
-test = chdate(birth_date, "Ingrese una fecha válida en el formato indicado [dd/mm/aaaa]", "Eres muy joven para este test", "Vuelve a intentarlo luego de nacer")
+test = chdate(birth_date, "Ingrese una fecha válida en el formato indicado [dd/mm/aaaa]",
+                          "Eres muy joven para este test", "Esa fecha aun no llega")
 print(test)
