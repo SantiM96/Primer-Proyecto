@@ -69,16 +69,23 @@ def check(day, possible_list, text):
     return day
 
 def alarm():
+
     possible_list_days = ["L", "MA", "MI", "J", "V", "S", "D"]
-    possible_list_question = ["T", "LV", "P"]
+    possible_list_question = ["T", "LV", "P", "F"]
     yes_not_list = ["SI", "NO"]
     days_list = []
+    days_list_return = []
+    date_specific = False
+    days_confirmation = True
+    date_alarm = datetime.datetime.now()
+    date_alarm - datetime.timedelta(hours=1)
+
     print("¿A que hora desea la alarma?")
     hour = input()
-    print("Que día desea que suene ( Todos [T] - Lunesa a Viernes [LV] Personalizado [P] )")
+    print("Que día desea que suene ( Todos [T] - Lunesa a Viernes [LV] - Personalizado [P] - Solo fecha específica [F] )")
     answer = input().upper()
-    answer = check(answer, possible_list_question, "Ingrese una opción válida\n( Todos [T] -"
-                                                    " Lunesa a Viernes [LV] Personalizado [P] )")
+    answer = check(answer, possible_list_question, "Ingrese una opción válida\n( Todos [T] - Lunesa a Viernes [LV]"
+                                                   " Personalizado [P] - Solo fecha específica [F] )")
     if answer == "P":
         print("Ingrese un día \n( Lunes [L] - Martes [Ma] - Miercoles [Mi]"
               " - Jueves [J] - Viernes [V] - Sábado [S] - Domingo [D] )")
@@ -106,19 +113,44 @@ def alarm():
         days_list.append("MI")
         days_list.append("J")
         days_list.append("V")
-    else:
+    elif answer == "T":
         days_list = possible_list_days
+    else:
+        days_confirmation = False
 
-    print("¿Desea que la alarma suene en una fecha en específico? [Si/No]")
-    specific = input().upper()
-    specific = check(specific, yes_not_list, "Ingrese una opción válida [Si/No]")
+    if days_confirmation:
+        print("Además, ¿Desea que la alarma suene en una fecha en específico? [Si/No]")
+        specific = input().upper()
+        specific = check(specific, yes_not_list, "Ingrese una opción válida [Si/No]")
+    else:
+        specific = "SI"
+
     if specific == "SI":
-        print("ingrese la fecha. [dd/mm/aaaa]")
+        print("Ingrese la fecha. Formato: [dd/mm/aaaa]")
         date_alarm = input()
         date_alarm = check_date(date_alarm, "Ingrese la fecha en el formato indicado [dd/mm/aaaa]")
         date_specific = True
 
-    return hour, days_list, date_alarm, date_specific
+    if days_confirmation:
+        for day in days_list:
+            if day == "L":
+                days_list_return.append("Lunes")
+            elif day == "MA":
+                days_list_return.append("Martes")
+            elif day == "MI":
+                days_list_return.append("Miercoles")
+            elif day == "J":
+                days_list_return.append("Jueves")
+            elif day == "V":
+                days_list_return.append("Viernes")
+            elif day == "S":
+                days_list_return.append("Sábado")
+            elif day == "D":
+                days_list_return.append("Domingo")
+    else:
+        days_list_return.append(False)
+
+    return int(hour), days_list_return, date_alarm, date_specific
 
 
 

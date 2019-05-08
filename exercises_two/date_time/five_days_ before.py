@@ -17,7 +17,7 @@ elif day_before_n == 3:
 elif day_before_n == 4:
     day_before = "Viernes"
 elif day_before_n == 5:
-    day_before = "Sabado"
+    day_before = "Sábado"
 elif day_before_n == 6:
     day_before = "Domingo"
 

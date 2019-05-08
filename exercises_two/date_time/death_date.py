@@ -90,6 +90,7 @@ def chdate(date, error_message_ivalid, error_message_same, error_message_exceed)
     date_ret = datetime.datetime.strptime(date, "%d/%m/%Y")
     return date_ret
 
+
 print("")
 print("     ¡Averigua la fecha de tu muerte!")
 print("-------------------------------------------")
