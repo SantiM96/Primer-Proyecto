@@ -5,9 +5,11 @@ def correct(list):
         new_item = ""
         for letter in item:
             if reset != 0:
-                letter.lower()
+                letter = letter.lower()
                 new_item += letter
                 reset += 1
+                if letter == " ":
+                    reset = 0
             else:
                 new_item += letter
                 reset += 1
