@@ -30,8 +30,8 @@ def menu():
     print(" ")
 
     print("         Comidas")
-    print("Hamburguesa ---$100")
-    print("Pancho --------$80")
+    print("Hamburguesa----$100")
+    print("Pancho---------$80")
     print("Chorizo--------$100")
     print("Papas fritas---$50")
     print(" ")
@@ -82,50 +82,59 @@ def value_selection(selection):
 
 
 
-order_list_client = []
-order_list_final = []
-large_list = 0
-total = 0
+
+first_condition = True
+while first_condition:
+
+    order_list_client = []
+    order_list_final = []
+    large_list = 0
+    total = 0
 
 
-print("")
-input("Presione enter para comenzar su pedido")
-menu()
 
-
-main_condition = True
-while main_condition:
-    if large_list > 0:
-        print("\n -Su pedido actual es: {}".format(correct(order_list_client)))
-        selection = input("\n\tEscriba su selección o presione"
-                          "\nenter para confirmar el pedido: ").upper()
+    print("")
+    ask_admin = input("Presione enter para comenzar su pedido")
+    if ask_admin == "admin":
+        pass
     else:
-        selection = input("\nEscriba su selección: ").upper()
 
-    #check select
-    tof = check_menu(selection)
+        menu()
 
 
-    if tof == True:
-        order_list_client.append(selection)
-        large_list += 1
-        total += value_selection(selection)
-    else:
-        if selection == "":
-            if large_list != 0:
-                main_condition = False
-
+        main_condition = True
+        while main_condition:
+            if large_list > 0:
+                print("\n -Su pedido actual es: {}".format(correct(order_list_client)))
+                selection = input("\n\tEscriba su selección o presione"
+                                  "\nenter para confirmar el pedido: ").upper()
             else:
-                print("\nIngrese una selección indicada en el Menú\n"
-                      "\n------------------------------------------")
-        else:
-            print("\nIngrese una selección indicada en el Menú\n"
-                  "\n------------------------------------------")
+                selection = input("\nEscriba su selección: ").upper()
 
-order_list_final = correct(order_list_client)
-print("\n\n\nUsted seleccionó {}"
-      "\nSerían: {}"
-      "\ngracias por su preferencia\n\n\n".format(order_list_final, total))
+            #check select
+            tof = check_menu(selection)
+
+
+            if tof == True:
+                order_list_client.append(selection)
+                large_list += 1
+                total += value_selection(selection)
+            else:
+                if selection == "":
+                    if large_list != 0:
+                        main_condition = False
+
+                    else:
+                        print("\nIngrese una selección indicada en el Menú\n"
+                              "\n------------------------------------------")
+                else:
+                    print("\nIngrese una selección indicada en el Menú\n"
+                          "\n------------------------------------------")
+
+        order_list_final = correct(order_list_client)
+        print("\n\n\nUsted seleccionó {}"
+              "\nSerían: {}"
+              "\nGracias por su preferencia\n\n\n".format(order_list_final, total))
 
 
 
