@@ -42,6 +42,20 @@ def menu():
     print("Fanta----------$45")
     print("Agua-----------$30")
     print(" ")
+def largew(word):
+    large = 0
+    for letter in word:
+        large += 1
+
+def menub():
+    print(" ")
+    print("           Menú")
+    print("          ------")
+    print(" ")
+
+    print("         Comidas")
+
+
 def correct(list):
     new_list = []
     for item in list:
@@ -86,6 +100,11 @@ def value_selection(selection):
 first_condition = True
 while first_condition:
 
+    food_menu_list = ["Hamburguesa", "Pancho", "Chorizo", "Papas fritas"]
+    food_menu_dict = dict({"Hamburguesa": "100", "Pancho": "80", "Chorizo": "100", "Papas fritas": "50"})
+
+    drinks_menu_dict = dict({"Coca Cola": "45", "Sprite": "45", "Fanta": "45", "Agua": "30"})
+    drinks_menu_list = ["Coca Cola", "Sprite", "Fanta", "Agua"]
     order_list_client = []
     order_list_final = []
     large_list = 0
