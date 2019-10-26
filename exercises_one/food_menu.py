@@ -23,6 +23,20 @@ def check_menu(selection):
         return True
     else:
         return False
+def check_admin_ask(answer, list_check):
+    if answer is list_check:
+        return True
+    else:
+        return False
+
+def large_script(word):
+    large = 0
+    for letter in word:
+        large += 1
+    script = (17 - large)
+    script = "-" * script
+    ret = word + script
+    return ret
 def menu():
     print(" ")
     print("           Menú")
@@ -30,32 +44,13 @@ def menu():
     print(" ")
 
     print("         Comidas")
-    print("Hamburguesa----$100")
-    print("Pancho---------$80")
-    print("Chorizo--------$100")
-    print("Papas fritas---$50")
+    for food in food_menu_list:
+        print(large_script(food) + food_menu_dict[food])
     print(" ")
-
     print("         Bebidas")
-    print("Coca Cola------$45")
-    print("Sprite---------$45")
-    print("Fanta----------$45")
-    print("Agua-----------$30")
+    for drink in drinks_menu_list:
+        print(large_script(drink) + drinks_menu_dict[drink])
     print(" ")
-def largew(word):
-    large = 0
-    for letter in word:
-        large += 1
-
-def menub():
-    print(" ")
-    print("           Menú")
-    print("          ------")
-    print(" ")
-
-    print("         Comidas")
-
-
 def correct(list):
     new_list = []
     for item in list:
@@ -105,6 +100,8 @@ while first_condition:
 
     drinks_menu_dict = dict({"Coca Cola": "45", "Sprite": "45", "Fanta": "45", "Agua": "30"})
     drinks_menu_list = ["Coca Cola", "Sprite", "Fanta", "Agua"]
+
+    check_list_admin = ["AC", "AB", "B1", "BC", "BB", ""]
     order_list_client = []
     order_list_final = []
     large_list = 0
@@ -115,7 +112,37 @@ while first_condition:
     print("")
     ask_admin = input("Presione enter para comenzar su pedido")
     if ask_admin == "admin":
-        pass
+        condition_answer = True
+        while condition_answer:
+
+            print("Agregar Comida [AC]\n"
+                  "Agregar Bebida [AB]\n"
+                  "Borrar 1 [B1]\n"
+                  "Borrar Comidas [BC]\n"
+                  "Borrar Bebidas [BB]\n"
+                  "Salir [Enter]")
+
+            answer = input().upper()
+            answer_boolean = check_admin_ask(answer, check_list_admin)
+            if answer_boolean == True:
+                condition_answer = False
+            else:
+                print("Ingrese una de las opciones indicadas")
+
+        #Add Food
+        new_food_name = input("Ingrese la nueva comida: ")
+        new_food_price = input("Ingrese el precio: ")
+        food_menu_list.append(new_food_name)
+        food_menu_dict[new_food_name] = new_food_price
+
+        #Add Drink
+        new_drink_name = input("Ingrese la nueva bebida: ")
+        new_drink_price = input("Ingrese el precio: ")
+        drinks_menu_list.append(new_drink_name)
+        drinks_menu_dict[new_drink_name] = new_drink_price
+
+
+
     else:
 
         menu()
