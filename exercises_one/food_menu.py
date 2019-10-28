@@ -2,33 +2,13 @@
 def check_menu(selection):
     ishere = False
 
-    if selection == "HAMBURGUESA":
-        ishere = True
-    elif selection == "PANCHO":
-        ishere = True
-    elif selection == "CHORIZO":
-        ishere = True
-    elif selection == "PAPAS FRITAS":
-        ishere = True
-    elif selection == "COCA COLA":
-        ishere = True
-    elif selection == "SPRITE":
-        ishere = True
-    elif selection == "FANTA":
-        ishere = True
-    elif selection == "AGUA":
+    if selection in food_menu_list or selection in drinks_menu_list:
         ishere = True
 
     if ishere == True:
         return True
     else:
         return False
-def check_admin_ask(answer, list_check):
-    if answer is list_check:
-        return True
-    else:
-        return False
-
 def large_script(word):
     large = 0
     for letter in word:
@@ -70,38 +50,28 @@ def correct(list):
     return new_list
 def value_selection(selection):
     value = 0
-    if selection == "HAMBURGUESA":
-        value = 100
-    elif selection == "PANCHO":
-        value = 80
-    elif selection == "CHORIZO":
-        value = 100
-    elif selection == "PAPAS FRITAS":
-        value = 50
-    elif selection == "COCA COLA":
-        value = 45
-    elif selection == "SPRITE":
-        value = 45
-    elif selection == "FANTA":
-        value = 45
-    elif selection == "AGUA":
-        value = 30
+    if selection in food_menu_list:
+        value += int(food_menu_dict[selection])
+    if selection in drinks_menu_list:
+        value += int(drinks_menu_dict[selection])
     return value
 
 
+
+food_menu_list = ["Hamburguesa", "Pancho", "Chorizo", "Papas fritas"]
+food_menu_dict = dict({"Hamburguesa": "100", "Pancho": "80", "Chorizo": "100", "Papas fritas": "50"})
+
+drinks_menu_dict = dict({"Coca Cola": "45", "Sprite": "45", "Fanta": "45", "Agua": "30"})
+drinks_menu_list = ["Coca Cola", "Sprite", "Fanta", "Agua"]
+
+check_list_admin = ["AC", "AB", "B1", "BC", "BB", ""]
 
 
 
 first_condition = True
 while first_condition:
 
-    food_menu_list = ["Hamburguesa", "Pancho", "Chorizo", "Papas fritas"]
-    food_menu_dict = dict({"Hamburguesa": "100", "Pancho": "80", "Chorizo": "100", "Papas fritas": "50"})
 
-    drinks_menu_dict = dict({"Coca Cola": "45", "Sprite": "45", "Fanta": "45", "Agua": "30"})
-    drinks_menu_list = ["Coca Cola", "Sprite", "Fanta", "Agua"]
-
-    check_list_admin = ["AC", "AB", "B1", "BC", "BB", ""]
     order_list_client = []
     order_list_final = []
     large_list = 0
@@ -123,23 +93,64 @@ while first_condition:
                   "Salir [Enter]")
 
             answer = input().upper()
-            answer_boolean = check_admin_ask(answer, check_list_admin)
-            if answer_boolean == True:
-                condition_answer = False
+            if answer in check_list_admin:
+
+
+                # Add Food
+                if answer == "AC":
+                    new_food_name = input("Ingrese la nueva comida: ")
+                    new_food_price = input("Ingrese el precio: ")
+                    food_menu_list.append(new_food_name)
+                    food_menu_dict[new_food_name] = new_food_price
+                    print("Comida Agregada")
+
+
+                # Add Drink
+                elif answer == "AB":
+                    new_drink_name = input("Ingrese la nueva bebida: ")
+                    new_drink_price = input("Ingrese el precio: ")
+                    drinks_menu_list.append(new_drink_name)
+                    drinks_menu_dict[new_drink_name] = new_drink_price
+                    print("Bebida Agregada")
+
+
+                #Remove one
+                elif answer == "B1":
+                    delete_one = input("Ingrese el elemento que desea borrar del menú: ")
+                    if delete_one in food_menu_list:
+                        food_menu_list.remove(delete_one)
+                        del food_menu_dict[delete_one]
+                        print("Comida borrada")
+                    elif delete_one in drinks_menu_list:
+                        drinks_menu_list.remove(delete_one)
+                        del drinks_menu_dict[delete_one]
+                        print("Bebida Borrada")
+
+
+                #Clean Foods
+                elif answer == "BC":
+                    food_menu_list = []
+                    food_menu_dict = dict()
+                    print("Menú de comidas borrado")
+
+
+                #Clean Drinks
+                elif answer == "BB":
+                    drinks_menu_list = []
+                    drinks_menu_dict = dict()
+                    print("Menú de bebidas borrado")
+
+
+                # Exit
+                elif answer == "":
+                    condition_answer = False
+
+
+
             else:
                 print("Ingrese una de las opciones indicadas")
 
-        #Add Food
-        new_food_name = input("Ingrese la nueva comida: ")
-        new_food_price = input("Ingrese el precio: ")
-        food_menu_list.append(new_food_name)
-        food_menu_dict[new_food_name] = new_food_price
 
-        #Add Drink
-        new_drink_name = input("Ingrese la nueva bebida: ")
-        new_drink_price = input("Ingrese el precio: ")
-        drinks_menu_list.append(new_drink_name)
-        drinks_menu_dict[new_drink_name] = new_drink_price
 
 
 
@@ -152,7 +163,7 @@ while first_condition:
         while main_condition:
             if large_list > 0:
                 print("\n -Su pedido actual es: {}".format(correct(order_list_client)))
-                selection = input("\n\tEscriba su selección o presione"
+                selection = input("\nEscriba su selección o presione"
                                   "\nenter para confirmar el pedido: ").upper()
             else:
                 selection = input("\nEscriba su selección: ").upper()
