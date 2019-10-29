@@ -48,6 +48,23 @@ def correct(list):
                 reset += 1
         new_list.append(new_item)
     return new_list
+def correct_word(word):
+    new_word = ""
+    reset = 0
+    for letter in word:
+        if reset != 0:
+            letter = letter.lower()
+            new_word += letter
+            reset += 1
+            if letter == " ":
+                reset = 0
+        else:
+            new_word += letter
+            reset += 1
+    return new_word
+
+
+
 def value_selection(selection):
     value = 0
     if selection in food_menu_list:
@@ -169,6 +186,7 @@ while first_condition:
                 selection = input("\nEscriba su selección: ").upper()
 
             #check select
+            selection = correct_word(selection)
             tof = check_menu(selection)
 
 
