@@ -78,7 +78,7 @@ dict_course = dict()
 name_usu = input("Ingrese su nombre: ")
 CI = input("Ingrese su cédula: ")
 CI = check_ci(CI, list_number, "Ingrese una cédula válida")
-dict_course["trimestre_uno"]
+dict_course["trimestre_uno "]
 course = input("Ingrese su curso: ")
 print("¿En que trimestre se encuentra? [Primero / Segundo / Tercereo]")
 trimester = input().lower()
@@ -90,5 +90,5 @@ dict_one = question_subjects()
 print("Ingrese las notas del segundo semestre")
 dict_two = question_subjects()
 
-print("Ingrese las notas del tercero semestre")
+print("Ingrese las notas del tercero semestre ahora")
 dict_three = question_subjects()
